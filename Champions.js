@@ -592,10 +592,9 @@ async function MoveSetMaker(PokemonApi){
         InformationBox1.textContent=""
         InformationBox2.textContent=""
 
+     
+
         let [Trainer2Name,Gen,Amount]= TrainerLocation.split(",")
-        OpponentsData= await Result()
-        //console.log(OpponentsData)
-    
         for(let key in OpponentsData[0][Gen][Trainer2Name]){
            
             for(let pokemon in OpponentsData[0][Gen][Trainer2Name][key]){
@@ -610,7 +609,7 @@ async function MoveSetMaker(PokemonApi){
 
 
 
-
+        
         PlayGame(PokemonParty1,PokemonParty2,Trainer1Name,Trainer2Name)
         
     }

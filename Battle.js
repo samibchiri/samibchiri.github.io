@@ -245,7 +245,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
             Party1[i].Name=name
             Party1[i]=PokemonStatCalc(Party1[i])
             
-            console.log("Paerty")
+
             if(Party1[i].BST>=600){
                 Party1PokeBalls.push(GreatBallClose)
             }

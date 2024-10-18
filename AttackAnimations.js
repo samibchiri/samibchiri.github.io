@@ -15,6 +15,14 @@ let BoomFarPokeBall=document.getElementById("BoomFarPokeBall")
 let HealBallClose= document.getElementById("HealBallClose")
 let HealBallFar= document.getElementById("HealBallFar")
 
+PokeBallClose.style.opacity="0"
+GreatBallClose.style.opacity="0"
+PokeBallFar.style.opacity="0"
+GreatBallFar.style.opacity="0"
+BoomClosePokeBall.style.opacity="0"
+BoomFarPokeBall.style.opacity="0"
+HealBallClose.style.opacity="0"
+HealBallFar.style.opacity="0"
 
 let ReviveBallClose= document.getElementById("ReviveBallClose")
 let ReviveBallFar= document.getElementById("ReviveBallFar")

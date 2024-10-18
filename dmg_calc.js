@@ -50,6 +50,9 @@ export async function UserDmgCalc(Move1,Attacker,Defender){
             else if(Type_Mult==0){
                 Message=Message+"It is has No Effect!"
             }
+            else if(Damage==0){
+                Message=Message+"It is has No Effect!"
+            }
             else if(Type_Mult<=0.8){
                 Message=Message+"It is Not Very Effective!"
             }
@@ -62,7 +65,6 @@ export async function UserDmgCalc(Move1,Attacker,Defender){
                 
                 if(Message!=""){
                     Message = Message + "        It is a Crit!";
-                    f
                     Message= Message.replace( / /g, "&nbsp;" );
                 }
                 else{
