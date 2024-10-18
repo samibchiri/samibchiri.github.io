@@ -39,7 +39,7 @@ export async function UserDmgCalc(Move1,Attacker,Defender){
         let Damage= (((2*Attacker.Level*Crit_Mult/5+2)*Move1.power*Attack_stat/Defense_stat/50)+2)*Type_Mult
        
         Damage=Math.ceil(Damage)
-
+        
         let Message=""
 
 

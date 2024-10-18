@@ -876,7 +876,9 @@ export async function DisplayParty(Purpose,PartyData,MovesData,ActivePokemonNumb
                 TempGameInputCont.textContent=""
                 TempGameInputCont.style.display="none"
                 GameInputCont.style.display="block"
-                resolve([Purpose])
+                console.log("NewSwitch")
+                console.log(Purpose)
+                resolve(Purpose)
               }
               
             }
@@ -884,7 +886,7 @@ export async function DisplayParty(Purpose,PartyData,MovesData,ActivePokemonNumb
               if(PartyData[ActivePokemonNumber].Hp!=0){
 
                 Purpose=""
-
+                console.log(SameSwitch)
                 TempGameInputCont.textContent=""
                 TempGameInputCont.style.display="none"
                 GameInputCont.style.display="block"
