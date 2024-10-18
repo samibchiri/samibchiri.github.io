@@ -48,7 +48,7 @@ export async function Attack(Move,Attacker,Defender,Location) {
                     else{
                     }
                     setTimeout(() => {
-                        if(Damage_Dealt>0){
+                        if(Damage_Dealt<=0){
                             GameMessage2.textContent="But he Missed!"
                         }
                         resolve();

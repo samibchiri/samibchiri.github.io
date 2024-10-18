@@ -81,7 +81,7 @@ function HallOfFameAnimationCard(Party){
         if(i<PartyLength){
             TempFameCards[i].querySelector(".FameCardName").textContent=Party[i].Name
             TempFameCards[i].querySelector(".FameSprite").src=Party[i].SpriteBack
-            TempFameCards[i].querySelector(".FameCardLevel").textContent=Party[i].Level
+            TempFameCards[i].querySelector(".FameCardLevel").textContent=`Level: ${Party[i].Level}`
     
         }
         else{
