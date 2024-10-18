@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1> PokeGame </h1>
+    <div id="StartAnimation"></div>
+    <div id="EndAnimation"></div>
+    <div id="TextBox">
+        <h2 class="InfoText" id="InformationBox1">Cant choose this pokemon</h2>
+        <br><br><br>
+        <h2 class="InfoText" id="InformationBox2">Cant choose this pokemon</h2>
+        <br><br>
+    </div>
+    <div id="TypeOpponents">
+        <h3 id="QuestionText"> What type of Opponent do <br> You want to Battle? </h3>
+        
+        <button class="OpponentsButton" id="ChampionsButton">Champions</button>
+       
+        <br><br>
+        <button class="OpponentsButton" id="GymLeadersButton">Gymleaders</button>
+        <br><br>
+        <button class="OpponentsButton" id="CustomButton">Custom</button>
+    </div>
+    
+    <div id="Greeting">
+        <h2 >Welcome to the World of Pokemon!</h2>
+        <h2 id="ChooseText"> Choose your Opponent for the next Battle</h2>
+       
+        <div class="Centering"> 
+            <button class="introButton" id="GameStartButton">Play Test</button>
+        </div>
+
+        <div class="Centering">
+            <button class="introButton" id="ChooseOpponents">Choose your Opponent</button>
+            <button class="introButton" id="SearchPokemonBtn"> Search Pokemon </button>
+        </div>
+
+    </div>
+
+    <div id="ImageCont">
+        <img id="Background" src="battle-background.webp" alt="Pokemon battle background">
+    </div>
+    
+    <template class="ChampTemplate">
+        <div class="ChampCard" data-value="">
+            <p class="Trainer_Name">
+            </p>
+            <p class="Trainer_Gen"></p>
+
+            <p class="Trainer_Level"></p>
+            <p class="Trainer_Amount"></p>
+            
+            
+        </div>
+    </template>
+
+    <template class="GymleaderTemplate">
+        <div class="GymleaderCard" data-value="">
+            <p class="Trainer_Name">
+            </p>
+            <p class="Trainer_Gen"></p>
+
+            <p class="Trainer_Level"></p>
+            <p class="Trainer_Amount"></p>
+            
+        </div>
+    </template>
+
+    <p id="ErrorMessage"></p>
+    <div id="FilterButtons">
+        
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" value="1">
+            Gen 1
+        </label>
+        
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen2" value="2">
+            Gen 2
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen3" value="3">
+            Gen 3
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen4" value="4">
+            Gen 4
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen5" value="5">
+            Gen 5
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen6" value="6">
+            Gen 6
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen7" value="7">
+            Gen 7
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen8" value="8">
+            Gen 8
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" class="ChampCheckbox" id="CheckGen9" value="9">
+            Gen 9
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" id="ChampLevelCheck"  value="">
+            Level
+        </label>
+        <label class="ChampTextBox">
+            <input type="checkbox" id="ChampRandom" value="">
+            Random
+        </label>
+        
+
+
+
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen1" value="1">
+            Gen 1
+        </label>
+        
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen2" value="2">
+            Gen 2
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen3" value="3">
+            Gen 3
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen4" value="4">
+            Gen 4
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen5" value="5">
+            Gen 5
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen6" value="6">
+            Gen 6
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen7" value="7">
+            Gen 7
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen8" value="8">
+            Gen 8
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" class="GymleaderCheckbox" id="GymGen9" value="9">
+            Gen 9
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" id="GymleaderLevelCheck"  value="">
+            Level
+        </label>
+        <label class="GymleaderTextBox">
+            <input type="checkbox" id="GymleaderRandom" value="">
+            Random
+        </label>
+    </div>
+
+    <div id="PokemonCont">
+        
+        <div id="PokemonFilterButtons">
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" value="1">
+                Gen 1
+            </label>
+            
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen2" value="2">
+                Gen 2
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen3" value="3">
+                Gen 3
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen4" value="4">
+                Gen 4
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen5" value="5">
+                Gen 5
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen6" value="6">
+                Gen 6
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen7" value="7">
+                Gen 7
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen9" value="8">
+                Gen 8
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" class="PokemonCheckbox" id="CheckGen9" value="9">
+                Gen 9
+            </label>
+            <label class="PokemonTextBox">
+                <input type="checkbox" id="PokemonRandom" value="">
+                Random
+            </label>
+            
+            </div>
+            <div id="PokemonStatFilter">
+                
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="BST" value="2">
+                    BST
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonHp" value="2">
+                    Hp
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonAtt" value="3">
+                    Attack
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonDef" value="4">
+                    Defense
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonSp_Att" value="5">
+                    Sp.Attack
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonSp_Def" value="6">
+                    Sp.Defense
+                </label>
+                <label class="TextBox">
+                    <input type="checkbox" class="Checkbox" id="PokemonSpeed" value="6">
+                    Speed
+                </label>
+                
+            </div>
+
+            <div id="PokemonMoveFilter">
+                <div>
+                    <label class="TextBox">
+                        <input type="checkbox" class="Checkbox" id="MovePower" value="2">
+                        Power
+                    </label>
+                </div>
+                <div>
+                    <label class="TextBox">
+                        <input type="checkbox" class="Checkbox" id="MoveAccuracy" value="2">
+                        Accuracy
+                    </label>
+                </div>
+                <div>
+                    <label class="TextBox">
+                        <input type="checkbox" class="Checkbox" id="MoveLength" value="3">
+                        Move Length
+                    </label>
+                </div>
+                
+            </div>
+            
+       
+
+        
+    
+        
+    </div>
+   
+    <template class="PokemonTemplate">
+        <div class="PokemonCard" data-value="">
+            <p class="Pokemon_Name"></p>
+            <p class="Pokemon_Base_Name"></p>
+            <p class="Pokemon_Gen"></p>
+
+            <p class="Pokemon_Type"></p>
+            <p class="Pokemon_BST"></p>
+            <p class="Pokemon_Stats"></p>
+            <p class="Pokemon_Dex"></p>
+        </div>
+    </template>
+
+    <template class="MoveTemplate">
+        <div class="MoveCard">
+            <p class="Move_Name">Crunch</p>
+            <p class="Move_Type">Dark</p>
+            <p class="Move_Power">Power: 100</p>
+            <p class="Move_Accuracy">Accuracy 100</p>
+            <p class="Move_Kind">Sp_Attack</p>
+        </div>
+    </template>
+    <div id="ChampSearchCont">
+        <div id="ChampSearch">
+            <input id="ChampSearchText"placeholder="Search Champion">
+        </div>
+    </div>
+
+    <div id="GymleaderSearchCont">
+        <div id="GymleaderSearch">
+            <input id="GymleaderSearchText"placeholder="Search Gymleader">
+        </div>
+    </div>
+
+    <div class="ListChamps"></div>
+    <div class="ListGymleaders"></div>
+
+
+    <div id="TestCont">
+        <div id="PokemonSearch">
+            <input id="PokemonSearchText"placeholder="Search Pokemon">
+            <div id="SkipButton">
+                <button class="ChooseOpponents" id="FinishPokemon">Go to Next Pokemon</button>
+            </div>
+            <p id="PartyCardTempText">Choose 5 more Pokemon</p>
+                
+        </div>
+        
+        <div class="ListPokemons"></div>
+        
+        <div class="ListMoves">
+            <ol class="PartyCardTemp">
+                
+              
+            </ol>
+        </div>
+    </div>
+
+
+  
+    <div id="TrainerNameCont">
+        <input id="TrainerNameInput"placeholder="Enter Your Name">
+        <button id="SubmitName" class="introButton" type="submit">Sumbit</button>
+    </div>
+        
+    
+    <div class="PokemonIntro">
+        <div id="Pokemon_Display1" class="Pokemon_Display">
+            <div class="PartyCard" data-value="1">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="2">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="3">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="4">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="5">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="6">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+        </div>
+        
+        
+        <div class="Display_Name">
+            <div class="Trainer1">
+                Black
+            </div>
+
+            <div class="Trainer2">
+                White
+            </div>
+            <div class="Vs">
+                Vs
+            </div>
+            <div class="Stripe1">
+                 
+            </div>
+            <div class="Stripe2">
+                 
+            </div>
+        </div>
+
+    
+
+        <div id="Pokemon_Display2" class="Pokemon_Display">
+            <div class="PartyCard" data-value="7">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+                 
+            </div>
+
+            <div class="PartyCard" data-value="8">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="9">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="10">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="11">
+                <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+            <div class="PartyCard" data-value="12">
+               <h4></h4>
+                <img src="" Alt="" class="PokemonSprite">
+            </div>
+
+        </div> 
+        
+    </div>
+
+
+    <div id="BattleArea">
+        <div id="BackgroundCopyDiv">
+            <img id="Background" src="forestbackground.jpg" alt="Pokemon battle background" width="800px" height="auto">
+            
+            <img id="PokemonFar" class="PokemonBattle" src="">
+            <img id="PokemonClose" class="PokemonBattle" src="">
+            <img id="PokeBallClose" class="ClosePokeBall" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/100.png">
+            <img id="GreatBallClose" class="ClosePokeBall" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/100.png">
+            <img id="PokeBallFar" class="FarPokeBall" src="Poke_Ball_Sprite.webp">
+            <img id="GreatBallFar" class="FarPokeBall" src="Great_Ball_Sprite.webp">
+            <div id="BoomClosePokeBall"> </div>
+            <div id="BoomFarPokeBall"></div>
+            <div id="HealBallClose"></div>
+            <div id="HealBallFar"></div>
+            <div id="ReviveBallClose"></div>
+            <div id="ReviveBallFar"></div>
+            
+            <div id="PokemonCloseInfo">
+                <div id="CopyPokemonCloseInfo">
+
+                    <div id="PokemonCloseInfoText">
+                        <div id="PokemonCloseName"></div>
+                        <div id="PokemonCloseHealth">
+                            
+                        </div>
+                        
+                    </div>
+                 </div>
+            </div>
+            
+            <div id="PokemonFarInfo">
+                <div id="CopyPokemonFarInfo">
+                    <div id="PokemonFarInfoText">
+                        <div id="PokemonFarName"></div>
+                        <div id="PokemonFarHealth">
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+           <div id="TrainerNamesBattleCont">
+                <p id="TrainerNames"></p>
+           </div>
+            <div id="PokemonFarHealthBar"></div>
+            <div class="GameMessages">
+                <p id="GameMessage1" class="GameMessage">Pokemon Used Fissure</p>
+                <p id="GameMessage2" class="GameMessage"></p>
+                
+            </div>
+            
+        
+        </div>
+       
+        <div id="GameInputCont">
+            <div id="ColorTopHalf"></div>
+            <div id="ColorBottomHalf"></div>
+            <div id="Stripe1Input"></div>
+            <div id="Stripe2Input"></div>
+            <div id="CircleInput"></div>
+            <div id="CircleFight">Fight</div>
+            <div id="MedicineBag">
+                <div id="MedicineBagText">
+                    Medicine
+                </div>
+            </div>
+
+            <div id="PokemonBag">
+                <div id="PokemonBagText">
+                    Pokemon
+                </div>
+            </div>
+            <div id="CutCorner1"></div>
+            <div id="CutCorner2"></div>
+        </div>
+        <div id="TempGameInputCont">
+
+        </div>
+    </div>
+
+   <template id="HealthBarClone">
+    <div class="HealthBarCont">
+        <div class="HealthBar"></div>
+        <div class="HealthOverlay"></div>
+
+      
+
+   </div>
+   </template>
+
+   <template id="FightTemplate">
+   
+        <div class="FightMoveName">
+            <p> Crunch</p>
+        </div>
+        <div class="FightMoveType">
+            <p>Dark</p>
+          </div>
+        <div class="FightMovePP">
+            <p> PP: 15/15</p>
+        </div>
+        <div class="FightMovePower">
+            <p> Power: 120</p>
+        </div>
+        <div class="FightMoveAccuracy">
+            <p> Accuracy: 100</p>
+        </div>
+
+   
+   </template>
+
+   
+   <div class="HallOfFameIntro">
+        
+    <div id="Congratulations">Congratulations Champion Blue! (not you)</div>
+
+    <div id="WelcomeFame">Welcome to The</div>
+    <div id="HallOfFameText">
+        <span id="HallText" class="HallUnderLine"><span class="text" id="HallShow">Hall</span></span>
+        <span id="OfText" class="SmallUnderLine"><span class="text" id  ="SmallerOF">Of</span></span>
+        <span id="FameText" class="UnderLine"><span class="text" id="FameShow">Fame</span></span>
+    
+    </div>
+
+    <div class="FameCard" data-value="1">
+        <h4></h4>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/740.png" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel">Level: 44</h6>
+    </div>
+
+    <div class="FameCard" data-value="2">
+        
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png"" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel"></h6>
+    </div>
+
+    <div class="FameCard" data-value="3">
+        <h4></h4>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10034.png" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel"></h6>
+    </div>
+
+    <div class="FameCard" data-value="4">
+        <h4></h4>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/595.png" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel"></h6>
+    </div>
+
+    <div class="FameCard" data-value="5">
+        
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/890.png" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel">Level: 44</h6>
+    </div>
+
+    <div class="FameCard" data-value="6">
+        
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png" Alt="" class="FameSprite">
+        <h6 class="FameCardName"></h6>
+        <h6 class="FameCardLevel"></h6>
+
+    </div>
+    
+</div>
+
+    
+
+    
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>

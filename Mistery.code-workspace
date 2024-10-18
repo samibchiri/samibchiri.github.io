@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../TestingCode"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Mistery"
+	}
+}

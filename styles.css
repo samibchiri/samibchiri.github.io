@@ -1,0 +1,1016 @@
+@import url('Introduction.css');
+@import url("ChampStyle.css");
+@import url("GymleaderStyle.css");
+
+@import url("PrepFightStyles.css");
+@import url("HallOfFameStyles.css");
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient( rgb(30, 218, 255),rgb(139, 222, 250),lightgreen,darkgreen);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+
+}
+
+#Greeting{
+    display: block;
+ 
+}
+
+#SearchPokemonBtn{
+    display: none;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.327);
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+h2{
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.327);
+    font-weight: bold;
+    margin:40px;
+    display:none;
+}
+
+h3{
+    font-size: 2rem;
+    margin-top:20px;
+    padding:10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.88);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.315);
+    border-color:black;
+    border-width: 3px;
+    border-style: solid;
+}
+
+#ChooseOpponents{
+    display: none;
+}
+
+#TypeOpponents{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 600px;
+    width:80vw;
+    margin:auto;
+    margin-bottom: 50px;;
+    border: 3px solid black;
+    
+}
+
+#QuestionText{
+    background-color: rgb(255, 226, 188);
+    box-shadow: 0px 2px 5px black;
+}
+
+.OpponentsButton{
+    font-size: 3rem;
+    margin:30px;
+    padding:15px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.725);
+    border-color:black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.OpponentsButton:hover{
+    background-color: rgb(238, 218, 192);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.OpponentsButton:active{
+    transform: scale(1.03)
+}
+
+#ChampionsCont{
+    display:block;
+    position: relative;
+    font-size: 3rem;
+    color:transparent;
+    padding:20px;
+    overflow: hidden
+
+}
+
+.AllMovesContClass{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+    width:90%;
+    position: absolute;
+    left:5%;
+    top:5%;
+    gap:10px;
+    background-color: rgba(16, 16, 16, 0.208);
+
+}
+
+.PokemonMovesCardCont{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  3fr 2fr 2fr;
+    gap:10px;
+    margin:10px;
+    background-color: red;
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 189);
+    border-radius: 10px;
+    transition: transform 1.2s;
+    cursor: pointer;
+}
+
+.PokemonMovesCardCont:hover{
+    background-color: rgb(213, 2, 2);;
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 169);
+}
+
+.ClassPokemonCard{
+    background-color: rgb(15, 203, 255);
+    box-shadow: 0px 0px 10px 0px rgb(0, 0, 189);
+    border-radius: 10px;
+    
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 3fr 2fr;
+    
+}
+
+.ClassPokemonCard:hover{
+    cursor: pointer;
+    background-color: rgb(35, 178, 255);
+    box-shadow: 0px 0px 10px 2px rgb(0, 0, 169);
+}
+
+.ClassPartOfCard{
+    position: relative;
+}
+
+.DisplayCardSprite{
+    
+    width:95%;
+    left:0px;
+    height:95%;
+    transform: translate(5%,5%);
+    background-color: rgba(21, 1, 180, 0.47);
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 2px rgb(0, 0, 169); ;
+    
+    
+}
+
+.DisplayPokemonName{
+    display: flex;
+    margin-left: 10%;
+    margin-top:10%;
+    height:40%;
+    width:90%;
+    font-weight: bold;
+    font-size:1.1rem;
+    transition: 1s;
+}
+
+.DisplayHealthBar{
+    position: relative;
+    height:30px;
+}
+@media (max-width: 778px){
+    
+    .DisplayPokemonName{
+        font-size: 0.8rem;
+    }
+    
+}
+
+
+.PartOfMoveCard{
+   
+    font-size:1rem;
+    font-weight: bold;
+    margin-left:5px;
+    
+}
+
+.NameOfMoveCard{
+    font-size: 1.5rem;
+    grid-column: 1 / span 2;
+    text-align: center;
+    font-weight: bold;
+}
+
+#PokemonCloseInfo{
+    position: absolute;
+    bottom:15%;
+    right:0%;
+    background-color: rgba(255, 255, 255, 0.532);
+    border-radius: 5%;
+    height:13%;
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+   
+}
+
+#CopyPokemonCloseInfo{
+    position: relative;
+    height:100%;
+    width:100%;
+}
+
+#PokemonCloseInfoText{
+    position: relative;
+}
+
+#PokemonCloseName{
+    position: absolute;
+    font-weight: bold;
+    left:0px
+}
+#PokemonCloseHealth{
+    position: absolute;
+    right:0px;
+    font-weight: bold;
+}
+
+
+
+.HealthBarCont{
+    margin-top:10%;
+    position: absolute;
+    left:10%;
+}
+
+
+
+#PokemonFarInfo{
+    position: absolute;
+    top:16%;
+    left:0%;
+    background-color: rgba(255, 255, 255, 0.532);
+    border-radius: 5%;
+    height:13%;
+    width:35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+   
+}
+
+#CopyPokemonFarInfo{
+    position: relative;
+    height:100%;
+    width:100%;
+}
+
+#PokemonFarInfoText{
+    position: relative;
+}
+
+#PokemonFarName{
+    position: absolute;
+    font-weight: bold;
+    left:0px
+}
+#PokemonFarHealth{
+    position: absolute;
+    right:0px;
+    font-weight: bold;
+}
+
+#HealBallClose{
+    
+    background-color: rgb(4, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:83%;
+    left:7%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+
+#HealBallClose{
+    
+    background-color: rgb(4, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:83%;
+    left:7%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+
+#HealBallFar{
+    
+    background-color: rgb(4, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:15%;
+    left:91%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+#ReviveBallClose{
+    
+    background-color: rgb(255, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:83%;
+    left:7%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+#ReviveBallFar{
+    
+    background-color: rgb(255, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:15%;
+    left:91%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+
+#ReviveBall{
+    
+    background-color: rgb(255, 255, 0);
+    width:20px;
+    height:20px;
+    position: absolute;
+    transform:translate(-50%,-50%);
+    top:15%;
+    left:91%;
+    border-radius: 50%;
+    will-change: transform;
+    
+}
+
+
+
+
+
+@keyframes OpenHealBall {
+
+    0%{
+        background-color: rgb(4, 255, 0);
+    }
+    25%{
+        width:100px;
+        height:100px;
+        background-color: rgb(20, 255, 20);
+        box-shadow: 0px 0px 25px yellow;
+        transform: translate(-50%,-50%);
+        
+    
+        
+        
+    }
+
+    50%{
+        width:250px;
+        height:250px;
+        background-color: rgb(70, 255, 70);
+        box-shadow: 0px 0px 30px yellow;
+        transform: translate(-50%,-50%);
+        
+        
+
+    }
+    75%{
+        width:100px;
+        height:100px;
+        background-color: rgb(23, 255, 20);
+        box-shadow: 0px 0px 20px yellow;
+        transform: translate(-50%,-50%)
+        
+
+    }
+
+    100%{
+        width:0px;
+        height:0px;
+        transform: translate(-50%,-50%);
+        background-color: rgb(4, 255, 0);
+
+    }
+    
+    
+}
+
+
+@keyframes OpenReviveBall {
+
+    0%{
+        background-color: rgb(255, 255, 0);
+    }
+    25%{
+        width:100px;
+        height:100px;
+        background-color: rgb(255, 255, 20);
+        box-shadow: 0px 0px 20px 1px rgb(255, 128, 0);
+        transform: translate(-50%,-50%);
+        
+    
+        
+        
+    }
+
+    50%{
+        width:250px;
+        height:250px;
+        background-color: rgb(255, 255, 50);
+        box-shadow: 0px 0px 10px 3px rgb(255, 128, 0);
+        transform: translate(-50%,-50%);
+        
+        
+        
+    }
+    75%{
+        width:100px;
+        height:100px;
+        background-color: rgb(255, 255, 20);
+        box-shadow: 0px 0px 20px 1px rgb(255, 128, 0);
+        transform: translate(-50%,-50%)
+        
+
+    }
+
+    100%{
+        width:0px;
+        height:0px;
+        transform: translate(-50%,-50%);
+        background-color: rgb(255, 255, 0);
+
+    }
+    
+    
+}
+
+
+
+#ImageCont{
+    display: none;
+    box-shadow: 5px 5px 10px black;
+    height: 300px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.426);
+    border-radius: 5px;
+}
+
+#Background{
+   
+    position: relative;
+    display: inline-block;
+    width:100%;
+    height:100%;
+    top: 1px;
+    border-color: black;
+  
+}
+
+p{
+    margin: 10px 10px;
+    pointer-events: none;
+}
+
+
+.hide{
+    display: none;
+}
+
+
+
+
+
+
+.PokemonCard{
+    display: inline-block;
+    justify-content: center;
+    width:250px;
+    height:220px;
+    top: 100px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    background-color: rgb(255, 255, 255);
+}
+
+.PokemonCard:hover{
+    background-color:   rgb(255, 243, 226);
+    cursor: pointer;
+}
+
+p{
+    margin: 10px 10px;
+}
+.Pokemon_Name,.Pokemon_BST,.Pokemon_Gen{
+    font-size: 1.2rem;;
+    color:rgba(0, 0, 0, 0.762)
+
+}
+.Pokemon_Stats{
+    font-size: 1.1rem;
+    color:rgba(0, 0, 0, 0.838)
+
+}
+
+.hide{
+    display: none;
+}
+
+
+h4{
+    color:white;
+    margin-top:5px;
+}
+
+.PokemonCheckbox{
+    transform: scale(2);
+    margin-left: 10px;
+    margin-bottom:10px;
+    vertical-align: middle; 
+}
+#PokemonLevelCheck,#PokemonRandom{
+    transform: scale(2);
+    margin-left: 10px;
+    margin-bottom:10px;
+    vertical-align: middle; 
+}
+
+.PokemonTextBox{
+    font-size: 1.5rem;
+}
+
+#PokemonFilterButtons{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px,1fr));
+    border:3px solid black;
+    padding:5px;
+    width: 275px;
+    padding:10px;
+    background-color: rgba(240, 203, 203, 0.335);
+    background-color: rgb(255, 248, 240);
+    z-index: 2;
+    position: absolute;
+    
+    
+
+}
+
+#PokemonSearch{
+    display: none;
+    flex-wrap: wrap;
+    position: relative;
+    
+
+}
+
+#ChampSearchCont{
+    display: none;
+}
+#ChampSearch{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    
+
+}
+
+#GymleaderSearchCont{
+    display: none;
+}
+#GymleaderSearch{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    
+
+}
+
+
+#PokemonSearchText{
+
+    height:50px;
+    font-size: 2rem;
+    width:257px;
+    border:2px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    outline: none;
+    padding:30px 5px;
+    border-radius: 5px;
+    left:320px;
+    transition: 0.5s;
+}
+#PokemonSearchText:focus{
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 249, 238);
+}
+
+#ChampSearchText{
+    
+    height:50px;
+    font-size: 1.9rem;
+    width:257px;
+    border:2px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    outline: none;
+    padding:30px 5px;
+    border-radius: 5px;
+    left:320px;
+    transition: 0.5s;
+}
+#ChampSearchText:focus{
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 249, 238);
+}
+
+
+#GymleaderSearchText{
+    
+    height:50px;
+    font-size: 1.9rem;
+    width:257px;
+    border:2px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    outline: none;
+    padding:30px 5px;
+    border-radius: 5px;
+    left:320px;
+    transition: 0.5s;
+}
+#GymleaderSearchText:focus{
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 249, 238);
+}
+
+
+
+#PokemonCont{
+    display: none;
+    position: relative;
+    
+    margin-bottom: 250px;;
+
+
+}
+
+
+.Pokemon_Dex{
+    color: transparent;
+}
+
+#TextBox{
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+    color:rgba(255, 0, 0, 0.932);
+   
+   
+}
+
+.InfoText{
+    font-size: 2rem;
+    margin:0px;
+    display: none;
+    float: left;
+
+
+}
+#InformationBox1{
+    text-shadow: 3px 3px 5px black;
+    font-size:2.5rem;
+}
+#InformationBox2{
+    margin-bottom: 20px;;
+    text-shadow: 3px 3px 5px black;
+    font-size:2.5rem;
+}
+
+.ListMoves{
+    text-align: right;
+    max-width: 35%;
+    float:right;
+    right:0px;
+    background-color:rgba(0, 0, 0, 0.278);
+    border: 3px solid black;
+    display: none;
+
+}
+
+.ListPokemons{
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    min-width: 60%;
+    background-color: rgba(0, 0, 0, 0.335);
+    margin-bottom: 50px;;
+    border: 3px solid black;
+    float: left;
+}
+
+.MoveCard{
+    display: inline-block;
+    justify-content: center;
+    width:260px;
+    height:170px;
+    top: 100px;
+    font-size: 1.2rem;
+    margin-left:0px;
+    border: 1px solid black;
+    background-color: rgb(252, 252, 108);
+    text-align: left;
+    background-color: rgb(252, 252, 108);
+}
+
+.MoveCard:hover{
+    background-color: rgb(255, 248, 59);
+    cursor: pointer;
+    
+}
+
+.Move_Name{
+    font-size: 1.4rem;
+}
+
+#TestCont{
+    display: block;
+
+    
+}
+
+#PokemonStatFilter{
+ 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-gap: 0px;
+    width: 320px;    
+    border:3px solid black;
+    padding:5px;
+    background-color: rgba(0, 0, 0, 0.335);
+    background-color: rgb(255, 248, 240);
+    overflow: hidden;
+    min-width: 159px;
+    position: absolute;
+    left:300px;
+    border-left-color: transparent;
+    height:160px;
+    z-index: 2;
+
+}
+
+
+#SkipButton{
+    display: block;
+}
+
+#FinishPokemon{
+
+    position: absolute;
+    width:340px;
+    font-size: 2rem;
+    bottom:-1px;
+    margin-left: 10px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: rgb(31, 30, 30);
+    color: antiquewhite;
+    border-style: outset;
+    border-color: grey;
+    border-width: 3px;
+    border-radius: 5px;
+    transition: background-color 0.2s, box-shadow 0.2s, border-color 0.2s, text-shadow 0.2s, font-size 0.2s; /* Apply transition to all properties that will change */
+
+}
+
+#FinishPokemon:hover {
+    width:340px;
+    background-color: black;
+    box-shadow: 2px 2px 5px black;
+    border: 3px solid rgb(71, 71, 71);
+    text-shadow: 2px 2px 2px rgb(143, 143, 143);
+    font-size: 2.1rem;
+    cursor: pointer;
+}
+
+
+#PokemonMoveFilter{
+    display: none;
+    grid-template-columns: 1fr; 
+    grid-template-rows: repeat(2, 1fr);
+
+    border:3px solid black;
+    padding:5px;
+    
+
+    padding:10px;
+
+    width:180px;
+    gap:20px;
+    height:150px;
+    position: absolute;
+    right:0px;
+
+    background-color: rgb(255, 248, 240);
+    
+   
+    z-index: 0;
+}
+
+
+@media (max-width: 740px) {
+    .PartyCardTemp{
+        width:35vw;
+        min-width: 160px;
+    }
+    
+}
+
+@media (min-width: 740px) {
+    .PartyCardTemp{
+        width:260px;
+    }
+    
+}
+
+
+
+.PartyCardTemp{
+    
+    display: none;
+
+    border:1px solid black;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(134, 255, 47);
+    
+    height:170px;
+    margin:0px;
+    margin-left:0px;
+   
+
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding:0px;
+    right:0px;
+    
+
+}
+
+#PartyCardTempText{
+
+    position: absolute;
+    text-align: right;
+    max-width: 35%;
+    float:right;
+    right:0px;
+    background-color:antiquewhite;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    padding:10px 5px;
+    transform: translate(0px,5px);
+    display: block;
+    bottom:-6px;
+    right:-10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: none;
+    
+}
+
+ol {
+    list-style-position: inside; 
+    float:right;
+}
+li{
+    margin: 5px;
+}
+
+.PartyInfo{
+    margin:10px;
+}
+
+#TrainerNameInput{
+    display:block;
+    top:50px;
+    height:50px;
+    font-size: 2rem;
+    width:300px;
+    border:2px solid rgb(0, 0, 0);
+    box-sizing: border-box;
+    outline: none;
+    padding:30px 5px;
+    border-radius: 5px;
+    transition:0.5s;
+}
+
+#TrainerNameInput:focus{
+    border:2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background-color: rgb(255, 249, 238);
+}
+
+#SubmitName{
+    margin:20px 20px;
+    
+}
+#SubmitName:hover{
+    font-size: 2rem;
+}
+
+#TrainerNameCont{
+    display:none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height:fit-content;
+    position: absolute;
+    width:100vw;
+    top:300px;
+
+}
+
+
+#TrainerNamesBattleCont{
+    position: absolute;
+    top:0.3%;
+    left:50%;
+    background-color: rgba(250, 235, 215, 0.8);
+    white-space: nowrap;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    transform: translate(-50%,0);
+}
+
+.DisplayLevel{
+    position: absolute;
+    top:20%;
+    left:10%;
+    font-weight: bold;
+}
+
+.DisplayHp{
+    position: absolute;
+    top:20%;
+    left:20%;
+    font-weight: bold;
+
+}
+
+
+.ClassHealCard{
+    display: flex;
+    background-color: greenyellow;
+    box-shadow: 0px 0px 10px 0px green;
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size:2rem;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.ClassHealCard:hover{
+    cursor: pointer;
+    background-color: rgb(126, 198, 19);
+    box-shadow: 0px 0px 10px 2px rgb(0, 107, 0);
+}

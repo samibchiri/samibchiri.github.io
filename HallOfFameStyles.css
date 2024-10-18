@@ -1,0 +1,511 @@
+
+
+@media (min-width: 800px) {
+    .FameCard {
+        width: 200px;
+        height: 150px;
+    }
+    .FameCardName{
+        top:65px;
+        font-size: 2.5rem;
+    }
+    .FameCardLevel{
+        top:145px;
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .FameCard {
+        width: 150px;
+        height: 150px;
+        margin-bottom:100px;
+    }
+    .FameCardName{
+        top:100px;
+        font-size: 1.8rem;
+    }
+    .FameCardLevel{
+        top:155px;
+        font-size: 1.3rem;
+    }
+}
+@media (max-width: 600px) {
+    .FameCard {
+        width: 100px;
+        height: 150px;
+    }
+    .FameCardName{
+        top:110px;
+        font-size: 1.4rem;
+    }
+    .FameCardLevel{
+        top:150px;
+        font-size: 1rem;
+    }
+}
+
+
+
+.FameCard{
+    
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.304);
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px 5px rgb(255, 15, 15);
+    border-radius: 5px;
+   
+    bottom:0px;
+    right:50px;
+    transition: box-shadow 0.5s ease;
+    
+}
+
+.HallOfFameIntro{
+
+    position: relative;
+    width:100%;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    
+    height:100%;
+    min-height: 500px;
+    opacity: 1;
+    
+    
+}
+
+#HallOfFameCont{
+    position: absolute;
+    top:0px;
+    display: grid;
+    grid-template-rows: repeat(2, minmax(150px,150px));
+    grid-template-columns: repeat(3, minmax(100px,150px));
+    height: 400px;
+    width:90vw;
+    gap:100px 80px;
+    max-width: 600px;
+    left:50%;
+    bottom:0px;
+    transform: translate(-50%,60%);
+
+    align-items: center;
+    justify-content: center;
+    margin:0px 0px;
+    top:0vh;
+    margin-top: 10vh;
+    
+}
+
+
+
+.FameCardName{
+    position: absolute;
+    color:white;
+    transition: 1s;
+}
+
+.FameCardLevel{
+    position: absolute;
+    color:white;
+    transition: 1s;
+}
+.FameSprite{
+    width:80%;
+    height:auto;
+    margin:auto;
+
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+   
+    position: absolute;
+
+}
+
+@keyframes ShowHallOfFameCard {
+    
+    0% {
+
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.719);
+        transform: rotateY(-180deg);
+        top:0%;
+        left:100%;
+        
+   }
+
+   25%{
+    transform:rotateY(-180deg);
+    top:8%;
+    left:10%;
+    
+   }
+   
+   30%{
+    transform: rotateY(-90deg);
+    top:10%;
+    left:5%;
+    
+   }
+
+   35%{
+    transform: rotateY(0deg);
+    top:12%;
+    left:10%;
+   
+    
+   }
+   55%{
+    transform: translate(-50%,-50%) scale(1);
+    top:30%;
+    left:50%;
+
+    
+    box-shadow: 0px 0px 10px 5px rgb(255, 15, 15);
+   
+    
+   }
+   65%{
+    transform:  translate(-50%,-50%) scale(1.5);
+    
+    top:30%;
+    left:50%;
+    box-shadow: 0px 0px 20px 10px rgb(255, 15, 15);
+   }
+   80%{
+    transform: translate(-50%,-50%) scale(1);
+    top:30%;
+    left:50%;
+
+   
+    
+    box-shadow: 0px 0px 10px 5px rgb(255, 15, 15);
+   
+   }
+
+   100%{
+    transform: translate(-50%,-50%) scale(1);
+    background-color: rgba(0, 0, 0, 0.719);
+   
+   }
+    
+    
+}
+
+@keyframes FlipCard {
+    0%{
+       
+        transform: rotateX(90deg) scale(0.0);
+        
+    }
+    20%{
+        bottom:50px;
+        transform: rotateX(90deg) scale(0.3);
+    }
+    80%{
+        bottom:0px;
+        transform: rotateX(0deg);
+        
+    }
+    100%{
+        bottom:0px;
+        transform: rotateX(0deg) scale(1.05);
+        font-weight: bolder;
+        
+
+    }
+}
+
+@keyframes FlipSmallCard {
+    0%{
+        
+       
+        transform: rotateX(90deg) scale(0.0);
+        
+    }
+    20%{
+        bottom:60px;
+        transform: rotateX(90deg) scale(0.3);
+    }
+    80%{
+        bottom:0px;
+        transform: rotateX(0deg);
+        
+    }
+    100%{
+        bottom:0px;
+        transform: rotateX(0deg) scale(1.05);
+        font-weight: bolder;
+        
+
+    }
+}
+
+
+#Congratulations{
+    position: absolute;
+    color:white;
+    top:90px;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+    min-width: 95%;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+
+  
+}
+
+#WelcomeFame{
+    position: absolute;
+    color:white;
+    top:90px;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+    min-width: 95%;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0;
+
+}
+
+#HallOfFameText{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    top:290px;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 5rem;
+    width:100%;
+    text-align: center;
+    
+    
+}
+
+
+
+#HallShow{
+    opacity: 0;
+}
+
+#SmallerOF{
+    opacity: 0;
+}
+
+#FameShow{
+    opacity: 0;
+}
+
+
+#SmallerOF{
+    font-size: 3rem;
+    margin-right:1rem;
+    margin-left: 20px;
+}
+
+
+
+.UnderLine {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.UnderLine .text {
+    position: relative;
+    display: inline-block;         
+    color: white; 
+    transition: 0s;
+
+}
+
+.HallUnderLine {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.HallUnderLine .text {
+    position: relative;
+    display: inline-block;         
+    color: white; 
+    transition: 0s;
+
+}
+
+
+
+.UnderLine::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    height: 10px; 
+    width:0px;
+    background-color: white;
+    transition: 1s; 
+}
+.HallUnderLine::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    height: 10px; 
+    width:0px;
+    background-color: white;
+    transition: 1s; 
+}
+
+.SmallUnderLine{
+    position: relative;
+    display: inline-block;
+}
+
+.SmallUnderLine::before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    right: 0;
+    bottom: 90px;
+    height: 10px; 
+    width:0px;
+    background-color: white;
+    transition: 1s; 
+    
+}
+
+.UnderLine.wider::before {
+    width:100%;
+    background-color:white;
+}
+
+.HallUnderLine.wider::before {
+    width:100%;
+    background-color:white;
+}
+
+.SmallUnderLine.wider::before {
+    width:90%;
+    background-color:white;
+}
+
+
+
+.UnderLine.remove::before {
+    transition: 1s;
+    width:0%;
+    background-color:white;
+    transform: translate(191px,0px);
+}
+
+.HallUnderLine.remove::before {
+    transition: 1s;
+    width:0%;
+    background-color:white;
+    transform: translate(147px,0px);
+    
+}
+
+.SmallUnderLine.remove::before {
+    transition: 1s;
+    background-color:white;
+    overflow: hidden;
+    transform: translate(89px,0px);
+    width:0%;
+    
+    background-color:white;
+}
+
+
+.SmallUnderLine .text {
+    position: relative;
+    display: inline-block;         
+    color: white; 
+    transition: 0s;
+
+}
+
+.CongratzText{
+    
+    position: relative;
+    transition: 1s;
+    opacity: 0;
+    display: inline-block;
+    font-size: 2.2rem;
+    top:-30px;
+}
+
+.WelcomeFameTextClass{
+    position: relative;
+    transition: 1s;
+    color:white;
+    display: inline-block;
+    top:60px;
+    opacity: 0;
+    font-size:2.5rem;
+    
+   
+  
+}
+
+
+
+
+@keyframes FadeHallTextIn{
+    0%{
+        opacity: 0.1;
+        transform: translate(0px,-100px);
+        
+    }
+    100%{
+        opacity: 1;
+       
+        font-weight: bolder;
+        
+      
+    }
+}
+
+@keyframes FadeWelcomeLeftIn{
+    0%{
+        opacity: 0.1;
+        transform: translate(-200px,0px);
+        
+    }
+    100%{
+        opacity: 1;
+       
+        font-weight: bolder;
+        
+      
+    }
+}
+
+
+@keyframes FadeWelcomeRightIn{
+    0%{
+        opacity: 0.1;
+        transform: translate(200px,0px);
+        
+    }
+    100%{
+        opacity: 1;
+       
+        font-weight: bolder;
+        
+      
+    }
+}
+
+
+
