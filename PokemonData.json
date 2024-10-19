@@ -462,20 +462,6 @@
     "Speed": 90
   },
   {
-    "Dex_Num": "0025",
-    "Name": "Partner Pikachu",
-    "Base_Name": "Pikachu",
-    "Type_1": "ELECTRIC",
-    "Type_2": "-",
-    "BST": 430,
-    "HP": 45,
-    "Attack": 80,
-    "Defense": 50,
-    "Sp_Attack": 75,
-    "Sp_Defense": 60,
-    "Speed": 120
-  },
-  {
     "Dex_Num": "0026",
     "Name": "Raichu",
     "Base_Name": "Raichu",

@@ -32,6 +32,7 @@ let OpponentsData= Result()
 let InformationBox1= document.getElementById("InformationBox1")
 let InformationBox2= document.getElementById("InformationBox2")
 
+
 let ListMoves= document.querySelector(".ListMoves")
 
 let PokemonSearch= document.getElementById("PokemonSearch")
@@ -220,9 +221,11 @@ export function fChampCheckboxes(event){
 
 let TrainerLocation
 
+
 export async function ChampsCards(){
     ChampsList=[]
     OpponentsData= await OpponentsData
+    console.log(OpponentsData)
     TrainersData=OpponentsData[0]
     ChampsData= OpponentsData[2]
     GenNumber=0
@@ -595,6 +598,7 @@ async function MoveSetMaker(PokemonApi){
      
 
         let [Trainer2Name,Gen,Amount]= TrainerLocation.split(",")
+        OpponentsData= await OpponentsData
         for(let key in OpponentsData[0][Gen][Trainer2Name]){
            
             for(let pokemon in OpponentsData[0][Gen][Trainer2Name][key]){

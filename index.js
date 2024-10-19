@@ -4,7 +4,7 @@ import {GymleaderCardClick,fGymleaderCheckboxes,GymleadersCards,ChooseRandomGyml
 import{RetrievePartiesData,GettingStatsData,DisplayParty,CreateClosePokemonInfo,MovingPokeCard } from './PrepFight.js'
 import{AttackMovesDisplay} from './Battle.js' 
 import { PokemonFilterBox, MoveFilterBox } from './FilterBoxes.js'
-
+import { Testing } from './test.js'
 
 //RetrievePartiesData()
 
@@ -73,17 +73,17 @@ StartGameButton.addEventListener("click",()=>{
         
         
         
-    EndAnimation.style.animation= "implosion 3s ease 1.5s forwards";
+    EndAnimation.style.animation= "implosion 0s ease 0s forwards";
     //3s 1.5s
         setTimeout(()=>{
             StartAnimation.style.display="none"
             setTimeout(()=>{
                 EndAnimation.style.display="none"
-            },3000)
+            },0)
             
-        },1500)
+        },0)
 
-    },1500)
+    },0)
     //1500
 })
     
