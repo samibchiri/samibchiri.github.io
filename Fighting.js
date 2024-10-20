@@ -48,9 +48,6 @@ export async function Attack(Move,Attacker,Defender,Location) {
                     else{
                     }
                     setTimeout(() => {
-                        if(Damage_Dealt<=0){
-                            GameMessage2.textContent="But he Missed!"
-                        }
                         resolve();
                     }, 1600);
                 });
@@ -217,6 +214,8 @@ export async function PokemonTurn(Purpose,ChosenMove1,ActivePokemon1,ChosenMove2
        
         let Aim = Purpose[1];
         
+        console.log(Purpose)
+        console.log(Aim)
   
 
         if(Aim=="Heal"){

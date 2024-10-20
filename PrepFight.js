@@ -886,7 +886,7 @@ export async function DisplayParty(Purpose,PartyData,MovesData,ActivePokemonNumb
               if(PartyData[ActivePokemonNumber].Hp!=0){
 
                 Purpose=""
-                console.log(SameSwitch)
+                
                 TempGameInputCont.textContent=""
                 TempGameInputCont.style.display="none"
                 GameInputCont.style.display="block"

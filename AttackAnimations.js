@@ -15,6 +15,11 @@ let BoomFarPokeBall=document.getElementById("BoomFarPokeBall")
 let HealBallClose= document.getElementById("HealBallClose")
 let HealBallFar= document.getElementById("HealBallFar")
 
+let GameMessage1= document.querySelector("#GameMessage1")
+let GameMessage2= document.querySelector("#GameMessage2")
+
+
+
 PokeBallClose.style.opacity="0"
 GreatBallClose.style.opacity="0"
 PokeBallFar.style.opacity="0"
@@ -165,6 +170,9 @@ export function CloseAttackMiss(){
         
         PokemonClose.style.animation = "PokemonCloseAttack 1.5s ease 0s forwards";
     }, 100); 
+    setTimeout(()=>{
+        GameMessage2.textContent="But he Missed!"
+    },1600)
 }
 
 
@@ -206,6 +214,11 @@ export function FarAttackMiss(){
        
         PokemonFar.style.animation = "PokemonFarAttack 1.5s ease 0s forwards";
    }, 100); 
+
+   setTimeout(()=>{
+        GameMessage2.textContent="But he Missed!"
+    },1600)
+
    
 }
 

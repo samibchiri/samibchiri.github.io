@@ -361,8 +361,8 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     document.getElementById("TrainerNames").textContent=`${Name1} vs ${CopyName2}`
 
 
-    MovingPokeCard(Name1,Name2)
-    await delay(6000)
+    //MovingPokeCard(Name1,Name2)
+    //await delay(6000)
     
     BattleArea.style.display="flex"
 
@@ -587,7 +587,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
 
         DisplayOutput=await DisplayParty(Purpose,Party1,Party1Moves,ActivePokemonNumber1)
         
-        Purpose=DisplayOutput[0]
+        Purpose=DisplayOutput
         
         if(Purpose!=""){
         
@@ -765,6 +765,8 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
     
     return new Promise(async (resolve)=>{
 
+        console.log("Purpose")
+        console.log(Purpose)
         
     CircleFight.style.pointerEvents="none"
     CircleInput.style.pointerEvents="none"
