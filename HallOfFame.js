@@ -16,7 +16,8 @@ export function HallOfFameAnimation(Party,Name,Winner){
     
     console.log(Party)
     console.log(Name)
-    let NumPok=6
+    let NumPok=Party.length
+    console.log(NumPok)
 
     //document.querySelector("h1").style.display = "none";
     document.documentElement.style.fontFamily = 'initial';  // For the <html> element
@@ -55,7 +56,7 @@ export function HallOfFameAnimation(Party,Name,Winner){
                 HallOfFameTextShow()
             },3000)
             
-        },NumPok*3000+500*NumPok+1000)
+        },NumPok*3000+6500)
     },1000)
     
 }
@@ -155,7 +156,7 @@ function HallOfFameAnimationCard(Party){
     setTimeout(()=>{
         console.log("RANNAN")
         GlowAlive()
-    },ShowDuration*ListOfFameCards.length+1000)
+    },ShowDuration*ListOfFameCards.length+500)
 
 }
 
@@ -257,9 +258,6 @@ function GlowAlive(){
 
 
 
-setTimeout(()=>{
-    //HallOfFameTextShow()
-},500)
 
 
 function HallOfFameTextShow(){

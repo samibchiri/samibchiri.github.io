@@ -73,17 +73,17 @@ StartGameButton.addEventListener("click",()=>{
         
         
         
-    EndAnimation.style.animation= "implosion 0s ease 0s forwards";
+    EndAnimation.style.animation= "implosion 3s ease 1.5s forwards";
     //3s 1.5s
         setTimeout(()=>{
             StartAnimation.style.display="none"
             setTimeout(()=>{
                 EndAnimation.style.display="none"
-            },0)
+            },5000)
             
         },0)
 
-    },0)
+    },1500)
     //1500
 })
     

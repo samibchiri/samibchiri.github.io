@@ -249,6 +249,7 @@ export async function RetrievePartiesData(FirstParty,SecondParty){
             }
          
             let CopyKey= key.split("_")[0]
+            
             //PartyCards1[i].textContent=""
             
             let PartyCardLists = PartyCards1[i].querySelectorAll("li");
@@ -287,10 +288,13 @@ export async function RetrievePartiesData(FirstParty,SecondParty){
         CopyPokemonApi.Level=(MovesParty2[i][key][4])
        
         if(PokemonApi!=undefined){
+            
             let Stats= await GettingStatsData(PokemonApi);
             [PokemonSpriteFront,PokemonSpriteBack,Hp,Att,Def,Sp_Att,Sp_Def,Speed,PokemonPrimaryType,PokemonSecondaryType]= Stats
             CopyPokemonApi.SpriteFront=(PokemonSpriteFront)
             CopyPokemonApi.SpriteBack=(PokemonSpriteBack)
+
+            console.log(Stats)
            
             CopyPokemonApi.Hp=Hp
             CopyPokemonApi.MaxHp=Hp
@@ -310,7 +314,13 @@ export async function RetrievePartiesData(FirstParty,SecondParty){
                 return new Promise(resolve => setTimeout(resolve, ms));
             }
             let CopyKey= key.split("_")[0]
-            
+
+            CopyKey= CopyKey.split("-")[0]
+            console.log("KEY")
+            console.log(CopyKey)
+
+            CopyKey=CopyKey[0].toUpperCase()+CopyKey.slice(1)
+
             PartyCards2[i].querySelector("h4").textContent=CopyKey
             PartyCards2[i].querySelector("img").src = PokemonSpriteFront
             

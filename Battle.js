@@ -171,29 +171,18 @@ let Aim
 
 
 
-function GetPokemonName1(ActivePokemonNumber1,Party1Moves){
-    let Pokemon1Name=Object.keys(Party1Moves)[0]
-    Pokemon1Name=Pokemon1Name.split("_")[0]
-    //console.log(name)
-    Pokemon1Name=Pokemon1Name.split("-")[0]
-    return Pokemon1Name
 
-}
 
-function GetPokemonName2(ActivePokemonNumber2,Party2Moves){
-    console.log(Party2Moves)
-    let Pokemon2Name=Object.keys(Party2Moves)[0]
-    Pokemon2Name=Pokemon2Name.split("_")[0]
-    //console.log(name)
-    Pokemon2Name=Pokemon2Name.split("-")[0]
-    return Pokemon2Name
-
-}
 
 
 
 export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     
+
+
+    for(let i=0;i<FirstParty.length;i++){
+        console.log(FirstParty[i])
+    }
 
     Name2=Name2.split(" ")
     let CopyName2=""
@@ -208,6 +197,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     Name2=CopyName2
 
     
+    
     let PokeBallClose=document.getElementById("PokeBallClose")
     let GreatBallClose=document.getElementById("GreatBallClose")
 
@@ -217,6 +207,9 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     let ActivePokemonNumbers
     let ActivePokemonNumber1=0
     let ActivePokemonNumber2=0
+
+
+
 
     
     let Partys= await PlayGamePrep(FirstParty,SecondParty)
@@ -229,6 +222,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     let Party2Moves=Partys[3]
 
 
+    console.log("Gamedata FOund")
 
 
 
@@ -329,6 +323,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
             //console.log(name)
             name=name.split("-")[0]
             //console.log(name)
+            name=name[0].toUpperCase()+name.slice(1)
             Party2[i].Name=name
             Party2[i]=PokemonStatCalc(Party2[i])
             
@@ -361,11 +356,12 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     document.getElementById("TrainerNames").textContent=`${Name1} vs ${CopyName2}`
 
 
-    //MovingPokeCard(Name1,Name2)
-    //await delay(6000)
+    MovingPokeCard(Name1,Name2)
+    await delay(6000)
     
     BattleArea.style.display="flex"
 
+    
     let Bag1={
         Name:"Bag1",
         HealPP:"0",
@@ -427,7 +423,8 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     
    
 
-    
+    console.log("PARTY2Balls")
+    console.log(Party2PokeBalls[ActivePokemonNumber2])
     ThrowFarPokemon(Party2PokeBalls[ActivePokemonNumber2],PokemonFarSprite)
 
     await delay(1500)
@@ -469,8 +466,7 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
      
 
          ActivePokemonNumbers=await AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,MovesOfActive1,MovesOfActive2,Bag1,Bag2)
-        GameMessage1.textContent=""
-        GameMessage2.textContent=""
+        
         ActivePokemonNumber1=ActivePokemonNumbers[0]
         ActivePokemonNumber2=ActivePokemonNumbers[1]
         
@@ -514,8 +510,6 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
    
    
         ActivePokemonNumbers=await AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,MovesOfActive1,MovesOfActive2,Bag1,Bag2)
-        GameMessage1.textContent=""
-        GameMessage2.textContent=""
         ActivePokemonNumber1=ActivePokemonNumbers[0]
         ActivePokemonNumber2=ActivePokemonNumbers[1]
         
@@ -539,8 +533,6 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
    
     MedicineBag.addEventListener("click",async ()=>{
         
-       GameMessage1.textContent=""
-        GameMessage2.textContent=""
         clearTimeout(timeoutId1);
         clearTimeout(timeoutId2);
 
@@ -574,8 +566,6 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
     
      PokemonBag.addEventListener("click",async ()=>{
         
-        GameMessage1.textContent=""
-        GameMessage2.textContent=""
         clearTimeout(timeoutId1);
         clearTimeout(timeoutId2);
 
@@ -612,17 +602,21 @@ export async function PlayGame(FirstParty,SecondParty,Name1,Name2){
 
             ActivePokemonNumber1=ActivePokemonNumber1.split("_")[0]
             await delay(300)
+            console.log("Here?")
             await ReturnClosePokemon(Party1PokeBalls[ActivePokemonNumber1])
            
 
-            setTimeout(()=>{
+            console.log(Name1)
                 
-                GameMessage1.textContent=`${Name1} Blacked Out!`
-                GameMessage2.textContent=`${Name2} Earned €2000!`
-            },100)
+            GameMessage1.textContent=`${Name1} Blacked Out!`
+            GameMessage2.textContent=`${Name2} Earned €2000!`
+        
             
-            
+            console.log("Wait1")
+            console.log(GameMessage1.textContent)
             await delay(1500)
+            console.log("Wait2")
+            console.log(GameMessage1.textContent)
             
 
             GameInputCont.style.display="none"
@@ -939,7 +933,7 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
     }
     */
     
-    async function Fight(Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,Moves1,Moves2 ){
+    async function Fight(Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,Moves1,Moves2,Purpose ){
         
    
     let ActivePokemon1=Party1[ActivePokemonNumber1]
@@ -1052,6 +1046,9 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                
                 let ResultingData=await PokemonTurn(Aim[0],Moves1[key1][index],ActivePokemon1,Moves2[key2][Moves2Index],ActivePokemon2,"","",Bag1,Bag2,Party2)
 
+                console.log("GAMEMESsage2")
+                console.log(GameMessage2.textContent)
+                
                 Moves1[key1][index]=ResultingData[0]
                 
                 Party1[ActivePokemonNumber1]=ResultingData[1]
@@ -1082,18 +1079,28 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
         
                         if(AlivePokemon){
                             
+                            console.log("GAMEMESsage22")
+                             console.log(GameMessage2.textContent)
+
                             GameMessage1.textContent=`${ActivePokemon1.Name} Fainted`
                             Purpose="1_Switch"
                             Purpose=await DisplayParty(Purpose,Party1,"",ActivePokemonNumber1)
                             Purpose=Purpose.split("_")
                             await ReturnClosePokemon(Party1PokeBalls[ActivePokemonNumber1])
         
+                            console.log("ACTIveNUmebr")
+                            console.log(ActivePokemonNumber1)
                             ActivePokemonNumber1=Purpose[2]
                             ActivePokemonNumber1=parseInt(ActivePokemonNumber1)
                             ActivePokemon1=Party1[ActivePokemonNumber1]
+                            console.log(ActivePokemonNumber1)
                            
                             await ThrowClosePokemon(Party1PokeBalls[ActivePokemonNumber1],ActivePokemon1.SpriteBack)
                     
+                            console.log("ChangedName")
+                            await ChangeClosePokemonInfo(ActivePokemon1.Name,ActivePokemon1.Hp, ActivePokemon1.Hp,ActivePokemon1.MaxHp);
+           
+
                             let DeathCount1=0
                             for (let i in Party1){
                                 if(Party1[i].Hp<=0){
@@ -1106,10 +1113,13 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                                 GameMessage1.textContent="Now I will show my final Pokemon!"
                             }
                             else{
-                                Pokemon1Name= GetPokemonName1(ActivePokemonNumber1,Moves1)
-                                GameMessage1.textContent=`Avenge him, ${Pokemon1Name}!`
-                                   
+                                Pokemon1Name= Party1[ActivePokemonNumber1].Name
+                                console.log(Party1)
+                                GameMessage1.textContent=`Give it Everything you've got, ${Pokemon1Name}!`
+                                console.log(GameMessage1.textContent)
                             }
+                            console.log("GAMEMESsage222")
+                              console.log(GameMessage2.textContent)
                               
                             RepeatClosePokemonInfo(ActivePokemon1.Name,ActivePokemon1.Hp, ActivePokemon1.MaxHp)
                      
@@ -1145,8 +1155,15 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
 
                 
                 timeoutId1= setTimeout(()=>{
-                    GameMessage1.textContent=""
-                    GameMessage2.textContent=""
+                    if(String(ActivePokemonNumber1).includes("_") || String(ActivePokemonNumber2).includes("_")){
+                        console.log("Battle Ended")
+                    }
+                    else{
+                        console.log("Textcontentchange")
+                        GameMessage1.textContent=""
+                        GameMessage2.textContent=""
+                    }
+                    
                 },3000)
                 
                 resolve([ActivePokemonNumber1,ActivePokemonNumber2]);
@@ -1180,6 +1197,10 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                 ActivePokemon1=Party1[ActivePokemonNumber1]
                 await ThrowClosePokemon(Party1PokeBalls[ActivePokemonNumber1],ActivePokemon1.SpriteBack)
                 
+                console.log("ChangedName")
+                await ChangeClosePokemonInfo(ActivePokemon1.Name,ActivePokemon1.Hp, ActivePokemon1.Hp,ActivePokemon1.MaxHp);
+           
+
                 let DeathCount1=0
                 for (let i in Party1){
                     if(Party1[i].Hp<=0){
@@ -1192,9 +1213,14 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                     GameMessage1.textContent="Now I will show my final Pokemon!"
                 }
                 else{
-                    Pokemon1Name= GetPokemonName1(ActivePokemonNumber1,Moves1)
+                    console.log("Changetext")
+                    Pokemon1Name= Party1[ActivePokemonNumber1].Name
+                    console.log(Party1)
+
                     GameMessage1.textContent=`Maybe you can do better, ${Pokemon1Name}.`
-                        
+                    console.log(GameMessage1.textContent)
+                    console.log(Purpose)
+                   await  delay(1500)
                 }
 
                 //RepeatClosePokemonInfo(ActivePokemon1.Name,ActivePokemon1.Hp, ActivePokemon1.MaxHp)
@@ -1243,6 +1269,10 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                            
                             await ThrowClosePokemon(Party1PokeBalls[ActivePokemonNumber1],ActivePokemon1.SpriteBack)
                             
+                            console.log("ChangedName")
+                            await ChangeClosePokemonInfo(ActivePokemon1.Name,ActivePokemon1.Hp, ActivePokemon1.Hp,ActivePokemon1.MaxHp);
+           
+
                             let DeathCount1=0
                             for (let i in Party1){
                                 if(Party1[i].Hp<=0){
@@ -1255,7 +1285,7 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                                 GameMessage1.textContent="Now I will show my final Pokemon!"
                             }
                             else{
-                                Pokemon1Name= GetPokemonName1(ActivePokemonNumber1,Moves1)
+                                Pokemon1Name= Party1[ActivePokemonNumber1].Name
                                 GameMessage1.textContent=`You have strong Pokemons, ${Name2}!`
                                 setTimeout(()=>{
                                     GameMessage2.textContent=`But mine are Stronger!`
@@ -1299,6 +1329,7 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
                 
                 
                 timeoutId2= setTimeout(()=>{
+                    console.log("Textcontentchang2")
                     GameMessage1.textContent=""
                     GameMessage2.textContent=""
                 },3000)
@@ -1311,11 +1342,19 @@ export async function AttackMovesDisplay(Purpose,Pokemon1Name,Pokemon2Name,Party
 
     }
     
-    let ActivePokemonNumbers=await Fight(Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,Moves1 ,Moves2 )
+    console.log("Purpose")
+    console.log(Purpose)
+    let ActivePokemonNumbers=await Fight(Party1,ActivePokemonNumber1,Party2,ActivePokemonNumber2,Moves1 ,Moves2,Purpose )
+    
+    console.log("GAMEMESsage25")
+    console.log(GameMessage2.textContent)
+                
+
     ActivePokemonNumber1=ActivePokemonNumbers[0]
     ActivePokemonNumber2=ActivePokemonNumbers[1]
     
    
+    
     
     resolve([ActivePokemonNumber1,ActivePokemonNumber2]);
     });
@@ -1449,7 +1488,10 @@ function SwapCompPokemon(Party2,ActivePokemonNumber2,Party2Moves){
             
             ActivePokemonNumber2=index
             
-            await ThrowFarPokemon(PokeBallFar,Party2[ActivePokemonNumber2].SpriteFront)
+            console.log("PARTY2Balls")
+            console.log(Party2PokeBalls)
+
+            await ThrowFarPokemon(Party2PokeBalls[ActivePokemonNumber2],Party2[ActivePokemonNumber2].SpriteFront)
             ChangeFarPokemonInfo(Party2[index].Name,Party2[index].Hp,Party2[index].Hp, Party2[index].MaxHp)
             
             let DeathCount2=0
@@ -1464,7 +1506,7 @@ function SwapCompPokemon(Party2,ActivePokemonNumber2,Party2Moves){
                 GameMessage1.textContent="Now I will show my final Pokemon!"
             }
             else{
-                Pokemon2Name= GetPokemonName2(ActivePokemonNumber2,Party2Moves)
+                Pokemon2Name= Party2[ActivePokemonNumber2].Name
                 GameMessage1.textContent=`I haven't shown my Strongest Pokemon Yet!`
                 GameMessage2.textContent=`Go for it, ${Pokemon2Name}!`
                    

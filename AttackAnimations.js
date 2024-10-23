@@ -15,8 +15,6 @@ let BoomFarPokeBall=document.getElementById("BoomFarPokeBall")
 let HealBallClose= document.getElementById("HealBallClose")
 let HealBallFar= document.getElementById("HealBallFar")
 
-let GameMessage1= document.querySelector("#GameMessage1")
-let GameMessage2= document.querySelector("#GameMessage2")
 
 
 
@@ -90,6 +88,11 @@ export function ThrowFarPokemon(Pokeball,Sprite){
 export function ReturnClosePokemon(Pokeball){
     
     return new Promise((resolve) => {
+
+        if(Pokeball==undefined){
+            Pokeball=PokeBallClose
+            console.log("Pokeball not Found")
+        }
         console.log("Thrown")
         PokemonClose.style.opacity="1"
         Pokeball.style.animation = "none";
@@ -117,6 +120,12 @@ export function ReturnClosePokemon(Pokeball){
 export function ReturnFarPokemon(Pokeball){
    
     return new Promise((resolve) => {
+
+        if(Pokeball==undefined){
+            Pokeball=PokeBallFar
+            console.log("Pokeball not Found")
+        }
+
         console.log("Far Throw")
         PokemonFar.style.opacity="1"
         Pokeball.style.animation = "none";
@@ -170,9 +179,6 @@ export function CloseAttackMiss(){
         
         PokemonClose.style.animation = "PokemonCloseAttack 1.5s ease 0s forwards";
     }, 100); 
-    setTimeout(()=>{
-        GameMessage2.textContent="But he Missed!"
-    },1600)
 }
 
 
@@ -214,12 +220,6 @@ export function FarAttackMiss(){
        
         PokemonFar.style.animation = "PokemonFarAttack 1.5s ease 0s forwards";
    }, 100); 
-
-   setTimeout(()=>{
-        GameMessage2.textContent="But he Missed!"
-    },1600)
-
-   
 }
 
 

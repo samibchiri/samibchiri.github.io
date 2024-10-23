@@ -613,7 +613,7 @@ async function MoveSetMaker(PokemonApi){
 
 
 
-        
+        console.log("GAMeStarted")
         PlayGame(PokemonParty1,PokemonParty2,Trainer1Name,Trainer2Name)
         
     }
@@ -652,6 +652,7 @@ async function getTrainerName() {
                     TextBox.style.display="flex"
                     InformationBox2.style.display="none"
                     InformationBox1.textContent="Your Name is too Long"
+                    InformationBox1.style.fontSize= "3rem";
                 }
             }
             

@@ -52,7 +52,7 @@
     position: absolute;
     background-color: rgba(0, 0, 0, 0.304);
     border: 2px solid black;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px 5px rgb(255, 15, 15);

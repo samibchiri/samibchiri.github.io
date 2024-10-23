@@ -36,44 +36,55 @@ export async function UserDmgCalc(Move1,Attacker,Defender){
         
         let Type_Mult= await TypeEffectiveness(Move1,Attacker,Defender)
        
+        console.log("TypeMult")
+        console.log(Type_Mult)
+        console.log((2*Attacker.Level*Crit_Mult/5+2))
+        console.log(Move1.power*Attack_stat/Defense_stat/50)
         let Damage= (((2*Attacker.Level*Crit_Mult/5+2)*Move1.power*Attack_stat/Defense_stat/50)+2)*Type_Mult
        
+        console.log(Damage)
         Damage=Math.ceil(Damage)
         
         let Message=""
 
 
           
-            if(Type_Mult>1.5){
-                Message=Message+"It is Super Effective!"
-            }
-            else if(Type_Mult==0){
-                Message=Message+"It is has No Effect!"
-            }
-            else if(Damage==0){
-                Message=Message+"It is has No Effect!"
-            }
-            else if(Type_Mult<=0.8){
-                Message=Message+"It is Not Very Effective!"
-            }
-            else{
-                
-            }
+        if(Type_Mult>1.5){
+            Message=Message+"It is Super Effective!"
+        }
+        else if(Type_Mult==0){
+            console.log("Here")
+            Message=Message+"But is has No Effect!"
+        }
+        else if(Damage==0){
+            console.log("THere")
+            Message=Message+"But is has No Effect!"
+        }
+        else if(Type_Mult<=0.8){
+            Message=Message+"It is Not Very Effective!"
+        }
+        else{
+            console.log("Normal")
+        }
 
 
-            if(Crit_Mult==2){
-                
+        if(Crit_Mult==2){
+            
+            if(Damage!=0){
+
                 if(Message!=""){
                     Message = Message + "        It is a Crit!";
                     Message= Message.replace( / /g, "&nbsp;" );
+                    console.log(Message)
                 }
                 else{
                     Message="It is a Crit!"
                 }
-                
             }
-               
             
+        }
+            
+        
        
         
 

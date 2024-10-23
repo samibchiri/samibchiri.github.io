@@ -14,8 +14,11 @@ let Message2
 export async function Attack(Move,Attacker,Defender,Location) {
     let attacked=false
 
+    console.log("ATTACKed")
+    
    GameMessage1.textContent=`${Attacker.Name} Used ${Move.Name}`
-    GameMessage2.textContent=""
+   
+   //GameMessage2.textContent=""
     
     while(!attacked){
         if(Move.pp>0){
@@ -24,7 +27,7 @@ export async function Attack(Move,Attacker,Defender,Location) {
             if(Math.random()>1-Move.accuracy/100){
         
                 let Result= await UserDmgCalc(Move,Attacker,Defender)
-                
+                console.log(Result)
                 let Damage_Dealt=Result[0]
 
                 await new Promise((resolve) => {
@@ -48,11 +51,13 @@ export async function Attack(Move,Attacker,Defender,Location) {
                     else{
                     }
                     setTimeout(() => {
+                        console.log("Message is Outputted")
+                        console.log(Result[1])
+                        GameMessage2.innerHTML=Result[1]
+                        console.log(GameMessage2.textContent)
                         resolve();
                     }, 1600);
                 });
-
-                Message2=Result[1]
 
                 //console.log(Defender)
                 
